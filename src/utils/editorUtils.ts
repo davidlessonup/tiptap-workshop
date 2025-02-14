@@ -11,10 +11,3 @@ export function getAndSetLink(editor: Editor | null) {
 export function getCurrentLink(editor: Editor | null): string | undefined {
   return editor?.getAttributes("link").href;
 }
-
-export function isAttributeActive(
-  editor: Editor | null,
-  attribute: string
-): boolean {
-  return editor?.isActive(attribute) || false;
-}

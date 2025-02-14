@@ -1,5 +1,5 @@
 import "./App.css";
-import { Tiptap } from "./Tiptap";
+import { Tiptap } from "./components/Tiptap/Tiptap";
 
 function App() {
   return (

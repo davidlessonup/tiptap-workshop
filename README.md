@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Starting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Make sure you are in the correct npm and node versions with `nvm use`
+- run `pnpm i` to install dependecies
+- run `pnpm run dev` to start the application
 
-Currently, two official plugins are available:
+# Exercise #1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Currently the UX for the link extension is a bit lacking.
 
-## Expanding the ESLint configuration
+## Issue
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+When a link is present:
 
-- Configure the top-level `parserOptions` property like this:
+- The button should be highlighted and the text in it should change
+- The alert should show the current value of the link
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### How to verify current behaviour
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Acceptance Criteira
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+# Exercise #2
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+We want to use the provided [link extension provided by TipTap](https://tiptap.dev/docs/editor/extensions/marks/link) but unfortunately it is falling short on certain edge cases for what we want to achieve.
+
+## Issue
+
+When pasting a link, the extension verifies if the value is prefixed by the defaultProtocol and if it isn't it will automically append it.
+However, this behaviour does not happen when using the setLink command provided by them.
+We want to streamline this by making the setLink command also verify and prefix the protocol.
+
+### How to verify current behaviour
+
+- Pasting the link `google.com` results in it becoming `https://google.com`
+
+### Acceptance Criteira
+
+- Inserting\Updating the link through the UI `google.com` results in it becoming `https://google.com`
+
+### Last Step
+
+- Upgrade the link extension from `^2.9.1` to `^2.11.5`, making sure that any changes that were made have no negative impact
+
+# Guidelines
+
+- Future proofing
+  Ideally we want to use extensions provided by TipTap and make use of the `.extends()` method
+- Safety
+  Making sure that whenever we do upgrade the packages, we won't lose our changes and that we will have resiliency to unpredictable changes from the core extension
+- Reusability
+  Sometimes, certain helper functions can be created / derived to be shared across any extension changes that we need to implement

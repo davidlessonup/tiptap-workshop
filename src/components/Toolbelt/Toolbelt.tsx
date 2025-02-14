@@ -1,10 +1,7 @@
 import React from "react";
+import clsx from "clsx";
 import { useCurrentEditor } from "@tiptap/react";
-import {
-  getAndSetLink,
-  getCurrentLink,
-  isAttributeActive,
-} from "../../utils/editorUtils";
+import { getAndSetLink, getCurrentLink } from "../../utils/editorUtils";
 
 export const Toolbelt: React.FC = () => {
   const { editor } = useCurrentEditor();
@@ -14,13 +11,22 @@ export const Toolbelt: React.FC = () => {
     <div className="control-group">
       <div className="button-group">
         <button
-          className={isAttributeActive(editor, "bold") ? "is-active" : ""}
-          onClick={() => editor?.chain().focus().toggleBold().run()}
+          className={clsx({ "is-active": hasLink })}
+          onClick={() => getAndSetLink(editor)}
         >
-          Bold
-        </button>
-        <button onClick={() => getAndSetLink(editor)}>
           {hasLink ? "Change Link" : "Add Link"}
+        </button>
+        <button
+          onClick={() => editor?.chain().focus().undo().run()}
+          disabled={!editor?.can().chain().focus().undo().run()}
+        >
+          Undo
+        </button>
+        <button
+          onClick={() => editor?.chain().focus().redo().run()}
+          disabled={!editor?.can().chain().focus().redo().run()}
+        >
+          Redo
         </button>
       </div>
     </div>

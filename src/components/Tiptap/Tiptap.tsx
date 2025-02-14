@@ -3,14 +3,13 @@ import { EditorProvider, BubbleMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Color } from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
-import { Link } from "./extensions/Link";
-import { BubbleMenuHandler } from "./components/BubbleMenuHandler/BubbleMenuHandler";
-import { Toolbelt } from "./components/Toolbelt/Toolbelt";
+import { Link } from "../../extensions/Link";
+import { BubbleMenuHandler } from "../BubbleMenuHandler/BubbleMenuHandler";
+import { Toolbelt } from "../Toolbelt/Toolbelt";
+import { content } from "./Tiptap.utils";
 
 // define your extension array
 const extensions = [StarterKit, Color, TextStyle, Link];
-
-const content = `<p><span>Hello World!</span></p>`;
 
 export const Tiptap = () => {
   return (

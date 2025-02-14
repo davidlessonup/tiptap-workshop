@@ -8,16 +8,18 @@ export const BubbleMenuHandler: React.FC = () => {
   const link = getCurrentLink(editor);
   if (link) {
     return (
-      <div className="button-group">
-        <button>
-          <a href={link} target="_blank">
-            Open
-          </a>
-        </button>
-        <button onClick={() => editor?.chain().focus().unsetLink().run()}>
-          Unlink
-        </button>
-        <button onClick={() => getAndSetLink(editor)}>Change</button>
+      <div className="bubble-menu">
+        <div className="button-group">
+          <button>
+            <a href={link} target="_blank">
+              Open
+            </a>
+          </button>
+          <button onClick={() => editor?.chain().focus().unsetLink().run()}>
+            Unlink
+          </button>
+          <button onClick={() => getAndSetLink(editor)}>Change</button>
+        </div>
       </div>
     );
   }
