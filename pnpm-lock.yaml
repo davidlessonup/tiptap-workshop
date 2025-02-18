@@ -23,6 +23,7 @@ specifiers:
   prosemirror-model: ^1.24.1
   react: ^19.0.0
   react-dom: ^19.0.0
+  react-json-view-lite: ^2.3.0
   typescript: ~5.7.2
   typescript-eslint: ^8.22.0
   vite: ^6.1.0
@@ -42,6 +43,7 @@ dependencies:
   prosemirror-model: 1.24.1
   react: 19.0.0
   react-dom: 19.0.0_react@19.0.0
+  react-json-view-lite: 2.3.0_react@19.0.0
 
 devDependencies:
   '@eslint/js': 9.20.0
@@ -2098,6 +2100,15 @@ packages:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+    dev: false
+
+  /react-json-view-lite/2.3.0_react@19.0.0:
+    resolution: {integrity: sha512-btGE+nynBIPRPLWMkE7ASOeF7QzzG6S3bTOTL0FLFNvprMsODmv8eUMFCUK9SOJqV8GCOW/avCpDJnMSchTafQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+    dependencies:
+      react: 19.0.0
     dev: false
 
   /react-refresh/0.14.2:

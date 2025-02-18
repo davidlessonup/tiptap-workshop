@@ -1,24 +1,22 @@
-// src/Tiptap.tsx
+import { useState } from "react";
 import { EditorProvider, BubbleMenu } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Color } from "@tiptap/extension-color";
-import TextStyle from "@tiptap/extension-text-style";
-import { Link } from "../../extensions/Link";
+import { content, extensions } from "./Tiptap.utils";
 import { BubbleMenuHandler } from "../BubbleMenuHandler/BubbleMenuHandler";
 import { Toolbelt } from "../Toolbelt/Toolbelt";
-import { content } from "./Tiptap.utils";
-
-// define your extension array
-const extensions = [StarterKit, Color, TextStyle, Link];
+import { JSONContent } from "../JSONContent/JSONContent";
 
 export const Tiptap = () => {
+  const [showJSON, setShowJSON] = useState(false);
+
   return (
     <EditorProvider
       extensions={extensions}
       content={content}
-      slotBefore={<Toolbelt />}
+      slotBefore={
+        <Toolbelt toggleJSON={() => setShowJSON((showJSON) => !showJSON)} />
+      }
+      slotAfter={showJSON && <JSONContent />}
     >
-      {/* <FloatingMenu editor={null}>This is the floating menu</FloatingMenu> */}
       <BubbleMenu editor={null}>
         <BubbleMenuHandler />
       </BubbleMenu>

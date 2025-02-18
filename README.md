@@ -6,18 +6,30 @@
 
 # Exercise #1
 
-Currently the UX for the link extension is a bit lacking.
-
 ## Issue
 
-When a link is present:
+Currently the UX for the link extension is a bit lacking.
 
-- The button should be highlighted and the text in it should change
-- The alert should show the current value of the link
+- When clicking on "Add Link"
 
-### How to verify current behaviour
+  - A prompt should be shown to the user to fill in with a url
+  - If the selection of text already contains a link, the text for this button should become "Change Link"
+    - The prompt should be prefilled with the current url set in the link
 
-### Acceptance Criteira
+- When selecting a part of the text a bubble menu appears
+  - This menu should only appear if a link is present
+  - Clicking on the "Open" button should open the url in a new tab
+  - Cicking on the "Unlink" button should remove the link from the selection
+  - Clicking on change should open and perform the same operation as "Change Link"
+
+Keep in mind that only missing parts for this exercise are all related to the integration of Tiptap, and not the UI elements
+
+- To help prompt the user, a util function called [promptUserForValue](/src/utils/promptUserForValue.ts) already exists
+- To interact with the editor data, a helper hook has been created [useCurrentEditorWithHandler](/src/hooks/useCurrentEditorWithHandler/useCurrentEditorWithHandler.ts)
+
+### Acceptance Criteria
+
+- All the requirements above are met
 
 # Exercise #2
 
@@ -33,7 +45,7 @@ We want to streamline this by making the setLink command also verify and prefix 
 
 - Pasting the link `google.com` results in it becoming `https://google.com`
 
-### Acceptance Criteira
+### Acceptance Criteria
 
 - Inserting\Updating the link through the UI `google.com` results in it becoming `https://google.com`
 
