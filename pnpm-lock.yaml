@@ -38,9 +38,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      linkify:
-        specifier: ^0.2.1
-        version: 0.2.1
+      linkifyjs:
+        specifier: ^4.2.0
+        version: 4.2.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1046,9 +1046,6 @@ packages:
 
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
-
-  linkify@0.2.1:
-    resolution: {integrity: sha512-Esq4rfRRHmH3RTqAsnGq33MwE0HqyeNWHpNbWFsV8jEnuPKseiOPjzWvK2i3REqwZpnbCxTh1yxAKzceKKFDGQ==}
 
   linkifyjs@4.2.0:
     resolution: {integrity: sha512-pCj3PrQyATaoTYKHrgWRF3SJwsm61udVh+vuls/Rl6SptiDhgE7ziUIudAedRY9QEfynmM7/RmLEfPUyw1HPCw==}
@@ -2324,8 +2321,6 @@ snapshots:
   linkify-it@5.0.0:
     dependencies:
       uc.micro: 2.1.0
-
-  linkify@0.2.1: {}
 
   linkifyjs@4.2.0: {}
 
