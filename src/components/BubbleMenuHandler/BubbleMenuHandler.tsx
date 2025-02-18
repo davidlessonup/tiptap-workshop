@@ -1,11 +1,11 @@
 import React from "react";
 
 export const BubbleMenuHandler: React.FC = () => {
-  const hasLink = false;
+  // const hasLink = false;
 
-  if (hasLink) {
-    return null;
-  }
+  // if (!hasLink) {
+  //   return null;
+  // }
 
   return (
     <div className="bubble-menu">
